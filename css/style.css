@@ -777,41 +777,49 @@ body.dark-mode .search-highlight {
 
 @media (max-width: 480px) {
     .top-bar {
-        padding: 0 6px;
-        height: 44px;
-        gap: 4px;
+        padding: 0 8px;
+        height: 52px;
+        gap: 6px;
+        justify-content: flex-start;
     }
 
     :root {
-        --topbar-height: 44px;
+        --topbar-height: 52px;
     }
 
     .top-bar-left {
-        gap: 6px;
+        gap: 8px;
         min-width: auto;
     }
 
     .logo {
-        font-size: 13px;
+        font-size: 15px;
         white-space: nowrap;
+        height: 28px;
+        line-height: 28px;
     }
 
     .top-bar-center {
-        margin: 0 4px;
-        flex: 1;
-        min-width: 0;
+        margin: 0 6px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .search-box {
-        padding: 3px 6px;
+        padding: 4px 8px;
+        height: 28px;
+        width: 125px;
+        flex-shrink: 0;
     }
 
     .search-box input {
-        font-size: 12px;
+        font-size: 13px;
+        width: 100%;
     }
 
     .search-box input::placeholder {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .top-bar-right {
@@ -819,7 +827,7 @@ body.dark-mode .search-highlight {
     }
 
     .theme-btn {
-        padding: 4px;
+        padding: 5px;
     }
 
     .content-body {
@@ -865,6 +873,14 @@ body.dark-mode .search-highlight {
 
     .welcome-meta {
         font-size: 12px;
+        flex-wrap: nowrap;
+        gap: 4px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .meta-sep {
+        display: none;
     }
 
     .subject-card {
@@ -894,10 +910,11 @@ body.dark-mode .search-highlight {
     }
 
     .cookie-banner {
-        left: 8px;
-        right: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
         bottom: 8px;
-        max-width: none;
+        max-width: calc(100% - 16px);
         padding: 12px;
     }
 

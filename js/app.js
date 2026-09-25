@@ -1185,6 +1185,12 @@ menuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('collapsed');
 });
 
+document.getElementById('mainContent').addEventListener('click', () => {
+    if (window.innerWidth <= 768 && !sidebar.classList.contains('collapsed')) {
+        sidebar.classList.add('collapsed');
+    }
+});
+
 themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('zyaoa_dark_mode', document.body.classList.contains('dark-mode'));
