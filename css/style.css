@@ -777,16 +777,29 @@ body.dark-mode .search-highlight {
 
 @media (max-width: 480px) {
     .top-bar {
-        padding: 0 8px;
+        padding: 0 6px;
         height: 44px;
+        gap: 4px;
     }
 
     :root {
         --topbar-height: 44px;
     }
 
+    .top-bar-left {
+        gap: 6px;
+        min-width: auto;
+    }
+
     .logo {
-        font-size: 14px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .top-bar-center {
+        margin: 0 4px;
+        flex: 1;
+        min-width: 0;
     }
 
     .search-box {
@@ -798,7 +811,15 @@ body.dark-mode .search-highlight {
     }
 
     .search-box input::placeholder {
-        font-size: 12px;
+        font-size: 11px;
+    }
+
+    .top-bar-right {
+        min-width: auto;
+    }
+
+    .theme-btn {
+        padding: 4px;
     }
 
     .content-body {
@@ -842,12 +863,24 @@ body.dark-mode .search-highlight {
         font-size: 13px;
     }
 
+    .welcome-meta {
+        font-size: 12px;
+    }
+
+    .subject-card {
+        padding: 10px;
+    }
+
     .card-title {
         font-size: 14px;
     }
 
     .card-range {
-        font-size: 12px;
+        font-size: 11px;
+    }
+
+    .card-progress {
+        font-size: 11px;
     }
 
     .tree-header {
@@ -858,5 +891,21 @@ body.dark-mode .search-highlight {
 
     .sidebar {
         width: 240px;
+    }
+
+    .cookie-banner {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        max-width: none;
+        padding: 12px;
+    }
+
+    .cookie-banner-title {
+        font-size: 13px;
+    }
+
+    .cookie-banner-text {
+        font-size: 12px;
     }
 }
