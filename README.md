@@ -9,7 +9,7 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/Markdown-Content-brightgreen?style=flat&logo=markdown&logoSize=auto&color=%23000000">
 </p>
 
-> Zyaoa-Study是一个使用HTML/CSS/JavaScript编写的初中数学在线学习平台。专注于提供简洁美观的学习体验，支持Markdown内容渲染和数学公式显示。出现bug可以在Issues提交问题，你的提交是完善项目的最大帮助！
+> Zyaoa-Study是一个使用HTML/CSS/JavaScript编写的在线学习平台。专注于提供简洁美观的学习体验，支持Markdown内容渲染和数学公式显示。出现bug可以在Issues提交问题，你的提交是完善项目的最大帮助！
 
 # 项目介绍
 * 这是什么：一个使用HTML/CSS/JavaScript编写的初中数学在线学习平台。
