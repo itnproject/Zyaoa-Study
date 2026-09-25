@@ -1,0 +1,2055 @@
+<!--
+ * Ctnister Design v1.0 — Professional UI Framework
+ * Author: itnproject
+ * GitHub: https://github.com/itnproject/Ctnister-Design
+ * License: AGPL v3 (non-commercial), Commercial: see COMMERCIAL.md
+ -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ctnister Design - UI组件展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, #f5f5f5 100%, #f5f5f5 100%, #f5f5f5 100%);
+            min-height: 100vh;
+            color: #1a1a2e;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #ffffff;
+            padding: 40px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #f0f9ff;
+            color: #0ea5e9;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border: 1px solid #bae6fd;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            color: #0f172a;
+        }
+
+        .hero h1 .brand {
+            color: #15c1ce;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .ping-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e6cc3a;
+            color: #fffffff8;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 24px;
+            border: 2px solid #e6cc3a;
+        }
+
+        .ping-btn:hover {
+            background: #e6cc3a;
+            border-color: #e6cc3c;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .section-badge {
+            background: #f0f9ff;
+            color: #0ea5e9;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid #bae6fd;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* IP Info Section */
+        .ip-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .ip-info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .ip-info-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 18px;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .ip-info-item span {
+            color: #64748b;
+        }
+
+        .ip-info-item strong {
+            color: #0f172a;
+        }
+
+        /* Speed Test Section */
+        .speed-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .speed-test-area {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .external-speed-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 2px solid #0ea5e9;
+            cursor: pointer;
+        }
+
+        .external-speed-btn:hover {
+            background: #0284c7;
+            border-color: #0284c7;
+        }
+
+        .external-speed-btn.active {
+            background: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .external-speed-results {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .ext-result-item {
+            text-align: center;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .ext-result-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .ext-result-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: #0ea5e9;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .ext-result-value.testing {
+            color: #06b6d4;
+        }
+
+        .ext-result-unit {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .ext-result-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .ext-result-stats span {
+            white-space: nowrap;
+        }
+
+        .ext-result-divider {
+            width: 1px;
+            height: 80px;
+            background: #e2e8f0;
+        }
+
+        .external-progress-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 8px;
+            background: #e2e8f0;
+            margin: 0 auto 24px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 0;
+        }
+
+        .external-progress-bar.active {
+            opacity: 1;
+        }
+
+        .external-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+            transition: width 0.3s ease-out;
+            position: relative;
+        }
+
+        .external-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        .external-progress-fill.animating {
+            transition: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .external-speed-btn-test {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            margin-bottom: 16px;
+            pointer-events: auto;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: background 0.15s ease;
+            width: 100%;
+            max-width: 280px;
+            min-height: 48px;
+        }
+
+        .external-speed-btn-test:hover {
+            background: #0284c7;
+        }
+
+        .external-speed-btn-test:active {
+            background: #0369a1;
+        }
+
+        .external-speed-btn-test:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .external-speed-btn-test.cancel-mode {
+            background: #ef4444;
+        }
+
+        .external-speed-info {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .external-status-text {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+            min-height: 20px;
+        }
+
+        /* Latency Section */
+        .latency-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .latency-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 280px;
+            min-height: 48px;
+            transition: background 0.15s ease;
+        }
+
+        .latency-btn:hover {
+            background: #0284c7;
+        }
+
+        .latency-btn.cancel {
+            background: #ef4444;
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 8px;
+            background: #e2e8f0;
+            margin: 0 auto 24px;
+            overflow: hidden;
+            opacity: 1;
+            border-radius: 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 60%;
+            background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+            transition: width 0.3s ease-out;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        .status-text {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .download-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 28px;
+        }
+
+        .download-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .download-icon {
+            width: 44px;
+            height: 44px;
+            background: #f0f9ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0ea5e9;
+            font-size: 20px;
+            border: 1px solid #bae6fd;
+        }
+
+        .download-size {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .download-file {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0ea5e9;
+            color: #ffffff;
+            border: 2px solid #0ea5e9;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: #0284c7;
+            border-color: #0284c7;
+        }
+
+        /* Search Section (from Whois) */
+        .search-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 14px 18px;
+            font-size: 15px;
+            border: 2px solid #e2e8f0;
+            background: #f8fafc;
+            color: #0f172a;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #0ea5e9;
+            background: #ffffff;
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0ea5e9;
+            color: #ffffff;
+            border: 2px solid #0ea5e9;
+            padding: 14px 24px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            background: #0284c7;
+            border-color: #0284c7;
+        }
+
+        .search-btn:disabled {
+            background: #94a3b8;
+            border-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .quick-tld {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tld-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: #334155;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .tld-btn:hover {
+            background: #f0f9ff;
+            border-color: #bae6fd;
+            color: #0ea5e9;
+        }
+
+        .tld-btn.active {
+            background: #0ea5e9;
+            border-color: #0ea5e9;
+            color: #ffffff;
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            padding: 14px 18px;
+            margin-top: 16px;
+            color: #dc2626;
+            font-size: 14px;
+        }
+
+        .error-message.visible {
+            display: flex;
+        }
+
+        /* Loading State */
+        .loading-state {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            margin-top: 16px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .loading-state.visible {
+            display: flex;
+        }
+
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .loading-spinner svg {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Result Section */
+        .result-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+            display: none;
+        }
+
+        .result-section.visible {
+            display: block;
+        }
+
+        .status-badge {
+            margin-left: auto;
+            background: #dcfce7;
+            color: #16a34a;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #bbf7d0;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .result-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+        }
+
+        .result-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .result-icon {
+            width: 36px;
+            height: 36px;
+            background: #f0f9ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0ea5e9;
+            border: 1px solid #bae6fd;
+        }
+
+        .result-card-title {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .result-card-value {
+            font-size: 15px;
+            color: #0f172a;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        /* Raw Data Section */
+        .raw-data-section {
+            background: #ffffff;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+            display: none;
+        }
+
+        .raw-data-section.visible {
+            display: block;
+        }
+
+        .raw-data-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #334155;
+            line-height: 1.6;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0ea5e9;
+            color: #ffffff;
+            border: 2px solid #0ea5e9;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: #0284c7;
+            border-color: #0284c7;
+        }
+
+        /* Notification Styles */
+        .notification {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border: 1px solid;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .notification-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .notification-message {
+            color: #64748b;
+        }
+
+        .notification-close {
+            flex-shrink: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            opacity: 0.6;
+            padding: 0;
+        }
+
+        .notification-close:hover {
+            opacity: 1;
+        }
+
+        .notification-success {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+            color: #16a34a;
+        }
+
+        .notification-warning {
+            background: #fefce8;
+            border-color: #fef08a;
+            color: #ca8a04;
+        }
+
+        .notification-error {
+            background: #fef2f2;
+            border-color: #fecaca;
+            color: #dc2626;
+        }
+
+        .notification-info {
+            background: #f0f9ff;
+            border-color: #bae6fd;
+            color: #0ea5e9;
+        }
+
+        /* Scrolling Text Styles */
+        .scrolling-text {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            padding: 14px 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scrolling-text-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .scrolling-text-badge {
+            flex-shrink: 0;
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .scrolling-text-track {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scrolling-text-inner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollText 20s linear infinite;
+        }
+
+        .scrolling-text-inner:hover {
+            animation-play-state: paused;
+        }
+
+        .scrolling-text-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 32px;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .scrolling-text-item::before {
+            content: '•';
+            color: #0ea5e9;
+            font-weight: bold;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .scrolling-text-fast .scrolling-text-inner {
+            animation-duration: 12s;
+        }
+
+        .scrolling-text-slow .scrolling-text-inner {
+            animation-duration: 30s;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 20px 0;
+        }
+
+        .footer a {
+            color: #15c1ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Showcase specific styles */
+        .showcase-intro {
+            background: #ffffff;
+            padding: 40px;
+            margin-bottom: 24px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .showcase-intro h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .showcase-intro p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .component-group {
+            margin-bottom: 40px;
+        }
+
+        .component-group-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .component-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .component-demo {
+            margin-bottom: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 28px 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .external-speed-results {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .ext-result-divider {
+                width: 80px;
+                height: 1px;
+            }
+
+            .ext-result-value {
+                font-size: 36px;
+            }
+
+            .ext-result-item {
+                max-width: 100%;
+            }
+
+            .external-speed-btn-test {
+                max-width: 100%;
+            }
+
+            .external-progress-bar {
+                max-width: 100%;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .external-speed-btn {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Showcase Intro -->
+        <section class="showcase-intro">
+            <div class="hero-badge">CTNISTER DESIGN</div>
+            <h1><span class="brand">Ctnister Design</span> UI组件展示</h1>
+            <p>本页面展示了Ctnister Design设计系统中的所有UI组件完整组件库。</p>
+        </section>
+
+        <!-- 1. Hero Section -->
+        <div class="component-group">
+            <h2 class="component-group-title">1. Hero Section</h2>
+            
+            <div class="component-label">标准Hero区域 - 用于页面顶部展示品牌和功能介绍</div>
+            <div class="component-demo">
+                <section class="hero">
+                    <div class="hero-badge">CTNISTER DESIGN</div>
+                    <h1><span class="brand">Ctnister Design</span> 界面样式</h1>
+                    <p>这是Ctnister Design设计系统的界面样式展示。</p>
+                    <a href="https://github.com/itnproject/Ctnister-Design" target="_blank" class="ping-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                Github
+            </a>
+                </section>
+            </div>
+
+            <div class="component-label">Hero Badge 组件</div>
+            <div class="component-demo">
+                <span class="hero-badge">CTNISTER DESIGN</span>
+                <span class="hero-badge" style="margin-left: 8px;">WHOIS BETA</span>
+                <span class="hero-badge" style="margin-left: 8px;">DOMAIN SEARCH</span>
+            </div>
+        </div>
+
+        <!-- 2. Section Header -->
+        <div class="component-group">
+            <h2 class="component-group-title">2. Section Header</h2>
+            
+            <div class="component-label">标准Section Header - 用于各区块标题</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <div class="section-header">
+                        <span class="section-badge">IP INFO</span>
+                        <h2 class="section-title">您的本地IP信息</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="component-label">带操作按钮的Section Header</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <div class="section-header">
+                        <span class="section-badge">SPEED TEST</span>
+                        <h2 class="section-title">在线测速</h2>
+                        <button class="external-speed-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                            脱离测速
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-label">Section Badge 变体</div>
+            <div class="component-demo">
+                <span class="section-badge">LATENCY TEST</span>
+                <span class="section-badge" style="margin-left: 8px;">SPEED TEST</span>
+                <span class="section-badge" style="margin-left: 8px;">DOMAIN SEARCH</span>
+                <span class="section-badge" style="margin-left: 8px;">WHOIS RESULT</span>
+                <span class="section-badge" style="margin-left: 8px;">RAW DATA</span>
+            </div>
+        </div>
+
+        <!-- 3. IP Info Section -->
+        <div class="component-group">
+            <h2 class="component-group-title">3. IP Info Section</h2>
+            
+            <div class="component-label">IP信息展示网格</div>
+            <div class="component-demo">
+                <section class="ip-section">
+                    <div class="section-header">
+                        <span class="section-badge">IP INFO</span>
+                        <h2 class="section-title">您的本地IP信息</h2>
+                    </div>
+                    <div class="ip-info-grid">
+                        <div class="ip-info-item">
+                            <span>IP: </span><strong>172.0.0.1</strong>
+                        </div>
+                        <div class="ip-info-item">
+                            <span>国家: </span><strong>中国</strong>
+                        </div>
+                        <div class="ip-info-item">
+                            <span>地区: </span><strong>广东</strong>
+                        </div>
+                        <div class="ip-info-item">
+                            <span>运营商: </span><strong>中国移动</strong>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 4. Speed Test Section -->
+        <div class="component-group">
+            <h2 class="component-group-title">4. Speed Test Section</h2>
+            
+            <div class="component-label">测速结果展示</div>
+            <div class="component-demo">
+                <section class="speed-section">
+                    <div class="section-header">
+                        <span class="section-badge">SPEED TEST</span>
+                        <h2 class="section-title">在线测速</h2>
+                        <button class="external-speed-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                            脱离测速
+                        </button>
+                    </div>
+                    <div class="speed-test-area">
+                        <div class="external-speed-results">
+                            <div class="ext-result-item">
+                                <div class="ext-result-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    下行速度
+                                </div>
+                                <div class="ext-result-value">256.84</div>
+                                <div class="ext-result-unit">Mbps</div>
+                                <div class="ext-result-stats">
+                                    <span>最高: 289.32</span>
+                                    <span>最低: 198.45</span>
+                                </div>
+                            </div>
+                            <div class="ext-result-divider"></div>
+                            <div class="ext-result-item">
+                                <div class="ext-result-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="17 8 12 3 7 8"/>
+                                        <line x1="12" y1="3" x2="12" y2="15"/>
+                                    </svg>
+                                    上行速度
+                                </div>
+                                <div class="ext-result-value">128.56</div>
+                                <div class="ext-result-unit">Mbps</div>
+                                <div class="ext-result-stats">
+                                    <span>最高: 145.23</span>
+                                    <span>最低: 98.76</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="external-progress-bar active">
+                            <div class="external-progress-fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="external-status-text">测速完成</div>
+                        <button class="external-speed-btn-test">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            重新测速
+                        </button>
+                        <div class="external-speed-info">
+                            测速来源: 本CDN节点 | 测试结果仅供参考使用
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 5. Latency Test Section -->
+        <div class="component-group">
+            <h2 class="component-group-title">5. Latency Test Section</h2>
+            
+            <div class="component-label">延迟测试结果展示</div>
+            <div class="component-demo">
+                <section class="latency-section">
+                    <div class="section-header">
+                        <span class="section-badge">LATENCY TEST</span>
+                        <h2 class="section-title">延迟测试</h2>
+                    </div>
+                    <div class="speed-test-area">
+                        <div class="external-speed-results">
+                            <div class="ext-result-item">
+                                <div class="ext-result-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                    平均延迟
+                                </div>
+                                <div class="ext-result-value">24.5</div>
+                                <div class="ext-result-unit">ms</div>
+                            </div>
+                            <div class="ext-result-divider"></div>
+                            <div class="ext-result-item">
+                                <div class="ext-result-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                    </svg>
+                                    网络抖动
+                                </div>
+                                <div class="ext-result-value">3.2</div>
+                                <div class="ext-result-unit">ms</div>
+                            </div>
+                            <div class="ext-result-divider"></div>
+                            <div class="ext-result-item">
+                                <div class="ext-result-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                    视频质量
+                                </div>
+                                <div class="ext-result-value">1080P</div>
+                                <div class="ext-result-unit">预估</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="status-text">测试完成</div>
+                        <button class="latency-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            重新测试
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 6. Download Section -->
+        <div class="component-group">
+            <h2 class="component-group-title">6. Download Section</h2>
+            
+            <div class="component-label">下载卡片网格</div>
+            <div class="component-demo">
+                <section class="download-section">
+                    <div class="section-header">
+                        <span class="section-badge">DOWNLOAD</span>
+                        <h2 class="section-title">文件下载</h2>
+                    </div>
+                    <div class="download-grid">
+                        <div class="download-card">
+                            <div class="download-card-header">
+                                <div class="download-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="download-size">1MB</div>
+                                    <div class="download-file">1MB.zip</div>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                下载文件
+                            </a>
+                        </div>
+                        <div class="download-card">
+                            <div class="download-card-header">
+                                <div class="download-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="download-size">10MB</div>
+                                    <div class="download-file">10MB.zip</div>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                下载文件
+                            </a>
+                        </div>
+                        <div class="download-card">
+                            <div class="download-card-header">
+                                <div class="download-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="download-size">100MB</div>
+                                    <div class="download-file">100MB.zip</div>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                下载文件
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 7. Search Section (from Whois) -->
+        <div class="component-group">
+            <h2 class="component-group-title">7. Search Section</h2>
+            
+            <div class="component-label">搜索框组件</div>
+            <div class="component-demo">
+                <section class="search-section">
+                    <div class="section-header">
+                        <span class="section-badge">DOMAIN SEARCH</span>
+                        <h2 class="section-title">域名查询</h2>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="请输入域名，例如：example.com" value="example.com">
+                        <button class="search-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                            查询Whois
+                        </button>
+                    </div>
+                    <div class="quick-tld">
+                        <button class="tld-btn">.com</button>
+                        <button class="tld-btn">.net</button>
+                        <button class="tld-btn">.org</button>
+                        <button class="tld-btn active">.cn</button>
+                        <button class="tld-btn">.top</button>
+                        <button class="tld-btn">.xyz</button>
+                        <button class="tld-btn">.io</button>
+                        <button class="tld-btn">.co</button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="component-label">错误提示组件</div>
+            <div class="component-demo">
+                <div class="error-message visible">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <span>域名格式不正确，请输入有效的域名</span>
+                </div>
+            </div>
+
+            <div class="component-label">加载状态组件</div>
+            <div class="component-demo">
+                <div class="loading-state visible">
+                    <div class="loading-spinner">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                        </svg>
+                        正在查询Whois信息...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Result Cards (from Whois) -->
+        <div class="component-group">
+            <h2 class="component-group-title">8. Result Cards</h2>
+            
+            <div class="component-label">查询结果卡片网格</div>
+            <div class="component-demo">
+                <section class="result-section visible">
+                    <div class="section-header">
+                        <span class="section-badge">WHOIS RESULT</span>
+                        <h2 class="section-title">查询结果</h2>
+                        <div class="status-badge">已注册</div>
+                    </div>
+                    <div class="result-grid">
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <div class="result-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <line x1="2" y1="12" x2="22" y2="12"/>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                    </svg>
+                                </div>
+                                <div class="result-card-title">域名</div>
+                            </div>
+                            <div class="result-card-value">example.com</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <div class="result-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                </div>
+                                <div class="result-card-title">注册状态</div>
+                            </div>
+                            <div class="result-card-value">已注册</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <div class="result-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                </div>
+                                <div class="result-card-title">注册时间</div>
+                            </div>
+                            <div class="result-card-value">1995-08-14 04:00:00</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <div class="result-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div class="result-card-title">过期时间</div>
+                            </div>
+                            <div class="result-card-value">2025-08-13 04:00:00</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <div class="result-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        <polyline points="9 22 9 12 15 12 15 22"/>
+                                    </svg>
+                                </div>
+                                <div class="result-card-title">注册商</div>
+                            </div>
+                            <div class="result-card-value">RESERVED-Internet Assigned Numbers Authority</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <div class="result-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                        <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                    </svg>
+                                </div>
+                                <div class="result-card-title">DNS服务器</div>
+                            </div>
+                            <div class="result-card-value">A.IANA-SERVERS.NET<br>B.IANA-SERVERS.NET</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 9. Raw Data Section -->
+        <div class="component-group">
+            <h2 class="component-group-title">9. Raw Data Section</h2>
+            
+            <div class="component-label">原始数据展示</div>
+            <div class="component-demo">
+                <section class="raw-data-section visible">
+                    <div class="section-header">
+                        <span class="section-badge">RAW DATA</span>
+                        <h2 class="section-title">原始Whois数据</h2>
+                    </div>
+                    <div class="raw-data-box">Domain Name: EXAMPLE.COM
+Registry Domain ID: 2336799_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.iana.org
+Registrar URL: http://res-dom.iana.org
+Updated Date: 2023-08-14T07:01:31Z
+Creation Date: 1995-08-14T04:00:00Z
+Registry Expiry Date: 2025-08-13T04:00:00Z
+Registrar: RESERVED-Internet Assigned Numbers Authority
+Registrar IANA ID: 376
+Domain Status: clientDeleteProhibited
+Domain Status: clientTransferProhibited
+Domain Status: clientUpdateProhibited
+Name Server: A.IANA-SERVERS.NET
+Name Server: B.IANA-SERVERS.NET</div>
+                    <button class="copy-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                        复制原始数据
+                    </button>
+                </section>
+            </div>
+        </div>
+
+        <!-- 10. Buttons -->
+        <div class="component-group">
+            <h2 class="component-group-title">10. Buttons</h2>
+            
+            <div class="component-label">主要按钮变体</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <button class="external-speed-btn-test">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    开始测速
+                </button>
+                <button class="external-speed-btn-test cancel-mode">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                    取消测速
+                </button>
+                <button class="external-speed-btn-test" disabled>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    测速中...
+                </button>
+            </div>
+
+            <div class="component-label">次要按钮变体</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <button class="external-speed-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    脱离测速
+                </button>
+                <button class="external-speed-btn active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    返回CDN测速
+                </button>
+            </div>
+
+            <div class="component-label">下载按钮</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <a href="#" class="download-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    下载文件
+                </a>
+            </div>
+
+            <div class="component-label">主按钮</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <a href="#" class="ping-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    前往 Github
+                </a>
+            </div>
+
+            <div class="component-label">搜索按钮</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <button class="search-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    查询Whois
+                </button>
+                <button class="search-btn" disabled>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    查询中...
+                </button>
+            </div>
+
+            <div class="component-label">复制按钮</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <button class="copy-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    复制原始数据
+                </button>
+            </div>
+
+            <div class="component-label">TLD按钮</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <button class="tld-btn">.com</button>
+                <button class="tld-btn">.net</button>
+                <button class="tld-btn">.org</button>
+                <button class="tld-btn active">.cn</button>
+                <button class="tld-btn">.top</button>
+                <button class="tld-btn">.xyz</button>
+                <button class="tld-btn">.io</button>
+                <button class="tld-btn">.co</button>
+            </div>
+        </div>
+
+        <!-- 11. Progress Bars -->
+        <div class="component-group">
+            <h2 class="component-group-title">11. Progress Bars</h2>
+            
+            <div class="component-label">测速进度条 (活跃状态)</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <div class="external-progress-bar active" style="max-width: 100%;">
+                        <div class="external-progress-fill" style="width: 50%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-label">进度条</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <div class="progress-bar" style="max-width: 100%;">
+                        <div class="progress-fill" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-label">进度条走动动画 (中状态)</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <div class="external-progress-bar active" style="max-width: 100%;">
+                        <div class="external-progress-fill animating"></div>
+                    </div>
+                    <div style="font-size: 13px; color: #64748b; margin-top: 8px;">正在进行...</div>
+                </div>
+            </div>
+
+            <div class="component-label">进度条完成并淡出 (完成状态)</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <div class="external-progress-bar active" style="max-width: 100%; animation: fadeOut 3s ease-in-out infinite;">
+                        <div class="external-progress-fill" style="width: 100%;"></div>
+                    </div>
+                    <div style="font-size: 13px; color: #64748b; margin-top: 8px;">完成，进度条淡出</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Input Fields -->
+        <div class="component-group">
+            <h2 class="component-group-title">12. Input Fields</h2>
+            
+            <div class="component-label">搜索输入框</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <input type="text" class="search-input" placeholder="请输入域名，例如：example.com" style="width: 100%; max-width: 500px;">
+                </div>
+            </div>
+
+            <div class="component-label">输入框 (聚焦状态)</div>
+            <div class="component-demo">
+                <div style="background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                    <input type="text" class="search-input" value="example.com" style="width: 100%; max-width: 500px; border-color: #0ea5e9; background: #ffffff;">
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. Status Badges -->
+        <div class="component-group">
+            <h2 class="component-group-title">13. Status Badges</h2>
+            
+            <div class="component-label">状态徽章</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <div class="status-badge">已注册</div>
+                <div class="status-badge" style="background: #fef2f2; color: #dc2626; border-color: #fecaca;">已过期</div>
+                <div class="status-badge" style="background: #fef3c7; color: #d97706; border-color: #fde68a;">即将过期</div>
+            </div>
+        </div>
+
+        <!-- 14. Footer -->
+        <div class="component-group">
+            <h2 class="component-group-title">14. Footer</h2>
+            
+            <div class="component-label">页脚组件</div>
+            <div class="component-demo">
+                <footer class="footer">
+                    <p>Ctnister Design ----</p>
+                    <p>Copyright &copy; ---- <a href="https://github.com/itnproject/Ctnister-Design">Ctnister Design</a>. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- 15. Icons -->
+        <div class="component-group">
+            <h2 class="component-group-title">15. SVG Icons</h2>
+            
+            <div class="component-label">常用图标集合</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; background: #ffffff; padding: 20px; border: 2px solid #e2e8f0;">
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">下载</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">上传</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">时间</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">搜索</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">播放</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">取消</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">心跳</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">复制</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Palette -->
+        <div class="component-group">
+            <h2 class="component-group-title">16. Color Palette</h2>
+            
+            <div class="component-label">Ctnister Design 配色方案</div>
+            <div class="component-demo" style="display: flex; flex-wrap: wrap; gap: 16px;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #0ea5e9; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#0ea5e9</div>
+                    <div style="font-size: 11px; color: #94a3b8;">主色调</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #15c1ce; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#15c1ce</div>
+                    <div style="font-size: 11px; color: #94a3b8;">品牌色</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #e6cc3a; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#e6cc3a</div>
+                    <div style="font-size: 11px; color: #94a3b8;">强调色</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #ef4444; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#ef4444</div>
+                    <div style="font-size: 11px; color: #94a3b8;">取消/错误</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #0f172a; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#0f172a</div>
+                    <div style="font-size: 11px; color: #94a3b8;">主文本</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #64748b; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#64748b</div>
+                    <div style="font-size: 11px; color: #94a3b8;">次要文本</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #f0f9ff; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#f0f9ff</div>
+                    <div style="font-size: 11px; color: #94a3b8;">背景蓝</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #f8fafc; border: 1px solid #e2e8f0;"></div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">#f8fafc</div>
+                    <div style="font-size: 11px; color: #94a3b8;">板块背景</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 17. Notifications -->
+        <div class="component-group">
+            <h2 class="component-group-title">17. Notifications</h2>
+            
+            <div class="component-label">成功通知</div>
+            <div class="component-demo">
+                <div class="notification notification-success">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">操作成功</div>
+                        <div class="notification-message">您的文件已成功上传到服务器</div>
+                    </div>
+                    <button class="notification-close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="component-label">警告通知</div>
+            <div class="component-demo">
+                <div class="notification notification-warning">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">注意</div>
+                        <div class="notification-message">您的域名将在7天后过期，请及时续费</div>
+                    </div>
+                    <button class="notification-close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="component-label">错误通知</div>
+            <div class="component-demo">
+                <div class="notification notification-error">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">操作失败</div>
+                        <div class="notification-message">网络连接超时，请检查网络设置后重试</div>
+                    </div>
+                    <button class="notification-close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="component-label">信息通知</div>
+            <div class="component-demo">
+                <div class="notification notification-info">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">系统通知</div>
+                        <div class="notification-message">服务器将于今晚22:00进行例行维护，预计耗时2小时</div>
+                    </div>
+                    <button class="notification-close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18. Scrolling Text -->
+        <div class="component-group">
+            <h2 class="component-group-title">18. Scrolling Text</h2>
+            
+            <div class="component-label">标准滚动文字</div>
+            <div class="component-demo">
+                <div class="scrolling-text">
+                    <div class="scrolling-text-content">
+                        <div class="scrolling-text-badge">公告</div>
+                        <div class="scrolling-text-track">
+                            <div class="scrolling-text-inner">
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面</span>
+                                <span class="scrolling-text-item">新用户注册即送100GB流量包</span>
+                                <span class="scrolling-text-item">Whois查询功能已上线，欢迎体验</span>
+                                <span class="scrolling-text-item">服务器稳定性达到99.99%</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面</span>
+                                <span class="scrolling-text-item">新用户注册即送100GB流量包</span>
+                                <span class="scrolling-text-item">Whois查询功能已上线，欢迎体验</span>
+                                <span class="scrolling-text-item">服务器稳定性达到99.99%</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面</span>
+                                <span class="scrolling-text-item">新用户注册即送100GB流量包</span>
+                                <span class="scrolling-text-item">Whois查询功能已上线，欢迎体验</span>
+                                <span class="scrolling-text-item">服务器稳定性达到99.99%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-label">快速滚动</div>
+            <div class="component-demo">
+                <div class="scrolling-text scrolling-text-fast">
+                    <div class="scrolling-text-content">
+                        <div class="scrolling-text-badge" style="background: #ef4444;">紧急</div>
+                        <div class="scrolling-text-track">
+                            <div class="scrolling-text-inner">
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面0</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面1</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面2</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面3</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面4</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面5</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面6</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面7</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-label">慢速滚动</div>
+            <div class="component-demo">
+                <div class="scrolling-text scrolling-text-slow">
+                    <div class="scrolling-text-content">
+                        <div class="scrolling-text-badge" style="background: #16a34a;">新闻</div>
+                        <div class="scrolling-text-track">
+                            <div class="scrolling-text-inner">
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面0</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面1</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面2</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面3</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面4</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面5</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面6</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面7</span>
+                                <span class="scrolling-text-item">Ctnister Design UI组件展示页面8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><a href="https://github.com/itnproject/Ctnister-Design">Ctnister Design</a> UI组件展示页面</p>
+        </footer>
+    </div>
+    <script>
+        // 模拟测速进度条动画
+        function animateProgress() {
+            const progressBars = document.querySelectorAll('.external-progress-fill.animating');
+            
+            progressBars.forEach(fill => {
+                let progress = 0;
+                const duration = 3000; // 3秒完成一次
+                const interval = 30; // 每30ms更新一次
+                const step = 100 / (duration / interval);
+                
+                const timer = setInterval(() => {
+                    progress += step;
+                    if (progress >= 100) {
+                        progress = 0; // 循环
+                    }
+                    fill.style.width = progress + '%';
+                }, interval);
+            });
+        }
+
+        // 页面加载后启动进度条动画
+        document.addEventListener('DOMContentLoaded', animateProgress);
+    </script>
+</body>
+</html>

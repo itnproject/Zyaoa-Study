@@ -1,0 +1,51 @@
+{
+  "name": "ctnister-design",
+  "version": "1.0.0",
+  "description": "Ctnister-Design is a simple, fast, and innovative UI.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./components/*": "./dist/components/*"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "COMMERCIAL.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "cdn",
+    "network",
+    "testing",
+    "design-system",
+    "css",
+    "whois",
+    "domain",
+    "lookup"
+  ],
+  "author": "itnproject",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itnproject/Ctnister-Design"
+  },
+  "bugs": {
+    "url": "https://github.com/itnproject/Ctnister-Design/issues"
+  },
+  "homepage": "https://github.com/itnproject/Ctnister-Design#readme"
+}
