@@ -910,11 +910,10 @@ body.dark-mode .search-highlight {
     }
 
     .cookie-banner {
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
-        bottom: 8px;
-        max-width: calc(100% - 16px);
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        max-width: none;
         padding: 12px;
     }
 
